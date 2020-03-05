@@ -14,7 +14,8 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"fix-styles": "stylelint 'src/**/*.{css,scss}'"
 	},
 	"husky": {
 		"hooks": {
@@ -54,6 +55,8 @@
 		"husky": "^4.2.3",
 		"lint-staged": "^10.0.8",
 		"prettier": "^1.19.1",
-		"pretty-quick": "^2.0.1"
+		"pretty-quick": "^2.0.1",
+		"stylelint": "^13.2.0",
+		"stylelint-config-standard": "^20.0.0"
 	}
 }
