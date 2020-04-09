@@ -1,29 +1,25 @@
 import React from "react";
-import Hello from "types/Hello";
+import { AppWrapper, AppHeader, AppLogo, AppPara, AppLink } from "App.styles";
 import logo from "logo.svg";
-import "App.scss";
 
 function App(): JSX.Element {
 	return (
-		<div className="App">
-			<Hello />
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit
-					<code>src/App.js</code>
-					and save to reload.
-				</p>
-				<a
+		<AppWrapper>
+			<AppHeader>
+				<AppLogo src={logo} alt="logo" />
+				<AppPara>
+					Edit <code>src/App.js</code> and save to reload.
+				</AppPara>
+				<AppLink
 					className="App-link"
 					href="https://reactjs.org"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
 					Learn React
-				</a>
-			</header>
-		</div>
+				</AppLink>
+			</AppHeader>
+		</AppWrapper>
 	);
 }
 
