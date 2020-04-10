@@ -22,16 +22,6 @@
 		"prebuild": "npm run lint:jsx && npm run lint:css && rm -rf build",
 		"deploy": "serve -s build -l 4000"
 	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
-	"lint-staged": {
-		"src/**/*.{js,jsx,json,scss}": [
-			"pretty-quick --staged"
-		]
-	},
 	"eslintConfig": {
 		"extends": "react-app"
 	},
@@ -56,10 +46,6 @@
 		"eslint-plugin-jsx-a11y": "^6.2.3",
 		"eslint-plugin-prettier": "^3.1.2",
 		"eslint-plugin-react": "^7.18.3",
-		"husky": "^4.2.3",
-		"lint-staged": "^10.0.8",
-		"prettier": "^1.19.1",
-		"pretty-quick": "^2.0.1",
 		"serve": "^11.3.0",
 		"stylelint": "^13.2.0",
 		"stylelint-config-prettier": "^8.0.1",

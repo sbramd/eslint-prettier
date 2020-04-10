@@ -1,0 +1,34 @@
+{
+  "name": "react-learning",
+  "version": "1.0.0",
+  "description": "A curated list of free resources to master React Development",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sbramd/react-learning.git"
+  },
+  "engines": {
+    "npm": ">=6.13.4",
+    "node": ">=12.16.1"
+  },
+  "author": "Sabbir Ahmed",
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "react-boilerplate-typescript/src/**/*.{ts,tsx,json}": [
+      "pretty-quick --staged"
+    ],
+    "react-boilerplate/src/**/*.{js,jsx,json,scss}": [
+      "pretty-quick --staged"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1"
+  }
+}
