@@ -17,14 +17,6 @@
       "pre-commit": "lint-staged"
     }
   },
-  "lint-staged": {
-    "react-boilerplate-typescript/src/**/*.{ts,tsx,json}": [
-      "pretty-quick --staged"
-    ],
-    "react-boilerplate/src/**/*.{js,jsx,json,scss}": [
-      "pretty-quick --staged"
-    ]
-  },
   "devDependencies": {
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
