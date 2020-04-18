@@ -6,6 +6,7 @@ import ThemeToggle from "./components/ThemeToggle";
 import AuthContextProvider from "./contexts/AuthContext";
 import SongList from "./components/SongList";
 import BookContextProvider from "./contexts/BookContext";
+import Numbers from "./components/Numbers";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         </ThemeContextProvider>
       </div>
       <SongList />
+      <Numbers />
     </>
   );
 }
