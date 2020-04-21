@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 
 const Numbers = () => {
   const [state, setState] = useState({
@@ -7,6 +7,8 @@ const Numbers = () => {
     error: null,
   });
   const [count, setCount] = useState(0);
+  const [rect, setRect] = useState({});
+  const divRef = useRef();
 
   const fetchData = (url) => {
     fetch(url)
@@ -20,6 +22,10 @@ const Numbers = () => {
         setState({ loading: false, error: error.toString(), data: null });
       });
   };
+
+  useLayoutEffect(() => {
+    setRect(divRef.current.getBoundingClientRect());
+  }, [state.data]);
 
   useEffect(() => {
     const onResize = () => {
@@ -43,9 +49,10 @@ const Numbers = () => {
 
   return (
     <div>
-      <div>
+      <div ref={divRef} style={{ display: "inline-block" }}>
         {state.loading ? "loading..." : state.error ? state.error : state.data}
       </div>
+      <pre>{JSON.stringify(rect, null, 2)}</pre>
       <div>count: {count}</div>
       <button onClick={() => setCount((count) => count + 1)}>increment</button>
     </div>

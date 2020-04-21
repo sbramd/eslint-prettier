@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import Hello from "./Hello";
 
 const someExpensiveComputation = () => "";
 
 const NewSongForm = ({ addSong }) => {
   const [title, setTitle] = useState(() => someExpensiveComputation());
+  const [showHello, setShowHello] = useState(true);
+  const inputRef = useRef();
+  const hello = useRef(() => console.log("hello"));
+
   const handleSubmit = (e) => {
     e.preventDefault();
     addSong(title);
@@ -21,8 +26,22 @@ const NewSongForm = ({ addSong }) => {
   return (
     <form onSubmit={handleSubmit}>
       <label>Song name:</label>
-      <input type="text" value={title} onChange={handleChange} />
+      <input ref={inputRef} type="text" value={title} onChange={handleChange} />
       <input type="submit" value="add" />
+      <button
+        type="button"
+        onClick={() => {
+          console.log(inputRef.current);
+          inputRef.current.focus();
+          hello.current();
+        }}
+      >
+        focus
+      </button>
+      <button type="button" onClick={() => setShowHello(!showHello)}>
+        toggle
+      </button>
+      {showHello && <Hello />}
     </form>
   );
 };

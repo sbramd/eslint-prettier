@@ -1,14 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-
-// import App from "./classes/App";
-import "./classes/index.css";
-
-import App from "./hooks/App";
-
-// import App from "./reducersActionsState/App";
-// import "./reducersActionsState/index.css";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
