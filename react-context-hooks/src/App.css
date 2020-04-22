@@ -1,29 +1,79 @@
-.App {
+main {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+}
+
+.side-nav-wrapper {
+  display: flex;
+  flex: 1;
+  max-width: var(--screen-sm);
+}
+
+@media (max-width: 600px) {
+  .side-nav-wrapper {
+    display: none;
+  }
+}
+
+.side-nav {
+  width: 33.33%;
+  max-width: var(--screen-sm);
+  position: fixed;
+  right: 0;
+  background-color: var(--color-white-dark);
+  min-height: 100vh;
+  padding: var(--spacing-lg) 0;
+  flex-direction: column;
+}
+
+.side-nav-header {
+  display: flex;
+  padding: 0 var(--spacing-md) var(--spacing-md);
+}
+
+.side-nav-header > h4 {
+  font-weight: 700;
+  color: var(--color-grey);
+  text-transform: uppercase;
+}
+
+.side-nav-link > a {
+  display: flex;
+  padding: 5px var(--spacing-md);
+}
+
+.hero {
   text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
+.hero-header {
+  background-color: var(--color-black);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--color-white);
 }
 
-.App-logo {
+.hero-header-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .hero-header-logo {
+    animation: hero-header-logo-spin infinite 20s linear;
   }
 }
 
-@keyframes App-logo-spin {
+@keyframes hero-header-logo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -33,29 +83,29 @@
   }
 }
 
-.wrapper {
-  background-color: #282c34;
+.content-wrapper {
+  background-color: var(--color-black);
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  color: #ffffff;
+  color: var(--color-white);
 }
 
-.wrapper:nth-child(2n) {
-  background-color: #ffffff;
-  color: #282c34;
+section.content-wrapper:nth-child(2n) {
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
 
-.wrapper-content {
-  padding: 80px 0;
-  max-width: 900px;
+.content {
+  padding: var(--spacing-lg) 0;
+  max-width: var(--screen-lg);
   width: 90%;
 }
 
-.wrapper-header {
-  margin-bottom: 80px;
+.content-header {
+  margin-bottom: var(--spacing-lg);
 }
 
-.wrapper-header > h1 {
+.content-header > h1 {
   margin-left: -2px;
 }

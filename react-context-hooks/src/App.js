@@ -6,18 +6,35 @@ import Callback from "./hooks/components/Callback";
 import Memo from "./hooks/components/Memo";
 
 const Hero = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
+  <div className="hero">
+    <header className="hero-header">
+      <img src={logo} className="hero-header-logo" alt="Logo" />
       <h1>Introducing Hooks</h1>
     </header>
   </div>
 );
 
-const Wrapper = ({ title, component: Component }) => (
-  <section className="wrapper">
-    <article className="wrapper-content">
-      <header className="wrapper-header">
+const SideNav = ({ links, title }) => (
+  <nav className="side-nav-wrapper">
+    <div className="side-nav">
+      <header className="side-nav-header">
+        <h4>{title}</h4>
+      </header>
+      <ul className="side-nav-link-list">
+        {links.map(({ name, id }, index) => (
+          <li key={index} className="side-nav-link">
+            <a href={`#${id}`}>{name}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+);
+
+const Wrapper = ({ id, title, component: Component }) => (
+  <section id={id} className="content-wrapper">
+    <article className="content">
+      <header className="content-header">
         <h1>{title}</h1>
       </header>
       {Component}
@@ -27,25 +44,23 @@ const Wrapper = ({ title, component: Component }) => (
 
 function App() {
   const sections = [
-    { title: "Callback", component: <Callback /> },
-    { title: "Memo", component: <Memo /> },
+    { id: "callback", title: "Callback", component: <Callback /> },
+    { id: "memo", title: "Memo", component: <Memo /> },
+  ];
+  const links = [
+    { id: "callback", name: "Callback" },
+    { id: "memo", name: "Memo" },
   ];
 
   return (
     <main>
-      <Hero />
-      {/* <Wrapper title="Hooks">
-        <p>
-          React has been designed from the start for gradual adoption, and you
-          can use as little or as much React as you need. Whether you want to
-          get a taste of React, add some interactivity to a simple HTML page, or
-          start a complex React-powered app, the links in this section will help
-          you get started.
-        </p>
-      </Wrapper> */}
-      {sections.map(({ title, component }, index) => (
-        <Wrapper key={index} title={title} component={component} />
-      ))}
+      <SideNav links={links} title="Introducing Hooks" />
+      <div className="container">
+        <Hero />
+        {sections.map((section, index) => (
+          <Wrapper key={index} {...section} />
+        ))}
+      </div>
     </main>
   );
 }

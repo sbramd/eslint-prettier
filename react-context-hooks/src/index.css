@@ -1,9 +1,51 @@
+:root {
+  --color-arctic: rgb(97, 218, 251);
+  --color-black: #282c34;
+  --color-white: #ffffff;
+  --color-white-dark: rgb(236, 236, 236);
+  --color-grey: #6d6d6d;
+
+  --screen-xs: 300px;
+  --screen-sm: 400px;
+  --screen-md: 600px;
+  --screen-lg: 800px;
+  --screen-xl: 1600px;
+
+  --font-size-md: calc(
+    10px + (26 - 10) * ((100vw - var(--screen-xs)) / (1600 - 300))
+  );
+  --font-size-lg: calc(
+    40px + (80 - 40) * ((100vw - var(--screen-xs)) / (1600 - 300))
+  );
+
+  --line-height-md: calc(
+    1.5em + (1.9 - 1.5) * ((100vw - var(--screen-xs)) / (1600 - 300))
+  );
+  --line-height-lg: calc(
+    1.2em + (1.5 - 1.2) * ((100vw - var(--screen-xs)) / (1600 - 300))
+  );
+
+  --font-family: Tahoma, Geneva, sans-serif;
+
+  --spacing-md: calc(
+    10px + (40 - 10) * ((100vw - var(--screen-xs)) / (1600 - 300))
+  );
+  --spacing-lg: calc(
+    60px + (80 - 60) * ((100vw - var(--screen-xs)) / (1600 - 300))
+  );
+}
+
 * {
   margin: 0;
   padding: 0;
-  font-family: Tahoma, Geneva, sans-serif;
-  font-size: calc(12px + (26 - 12) * ((100vw - 300px) / (1600 - 300)));
-  line-height: calc(1.5em + (1.9 - 1.5) * ((100vw - 300px) / (1600 - 300)));
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -12,16 +54,16 @@ body {
 }
 
 h1 {
-  font-size: calc(40px + (80 - 40) * ((100vw - 300px) / (1600 - 300)));
-  line-height: calc(1.2em + (1.5 - 1.2) * ((100vw - 300px) / (1600 - 300)));
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
   font-weight: 700;
   letter-spacing: -2px;
 }
 
 button {
-  background-color: rgb(97, 218, 251);
-  color: #282c34;
-  padding: 10px 25px;
+  background-color: var(--color-arctic);
+  color: var(--color-black);
+  padding: 10px var(--spacing-md);
   transition: background-color 0.2s ease-out 0s;
   border: none;
   cursor: pointer;
@@ -30,5 +72,20 @@ button {
 }
 
 button:hover {
-  background-color: rgb(236, 236, 236);
+  background-color: var(--color-white-dark);
+}
+
+a {
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--color-black);
+  transition: color 0.2s ease-out 0s;
+}
+
+a:hover {
+  color: var(--color-arctic);
+}
+
+ul {
+  list-style-type: none;
 }
