@@ -1,9 +1,9 @@
 :root {
   --color-arctic: rgb(97, 218, 251);
   --color-black: #282c34;
+  --color-black-dark: #20232a;
   --color-white: #ffffff;
   --color-white-dark: rgb(236, 236, 236);
-  --color-grey: #6d6d6d;
 
   --screen-xs: 300px;
   --screen-sm: 400px;
@@ -12,7 +12,7 @@
   --screen-xl: 1600px;
 
   --font-size-md: calc(
-    10px + (26 - 10) * ((100vw - var(--screen-xs)) / (1600 - 300))
+    10px + (24 - 10) * ((100vw - var(--screen-xs)) / (1600 - 300))
   );
   --font-size-lg: calc(
     40px + (80 - 40) * ((100vw - var(--screen-xs)) / (1600 - 300))
@@ -69,6 +69,8 @@ button {
   cursor: pointer;
   outline: none;
   line-height: normal;
+  letter-spacing: 1px;
+  text-transform: capitalize;
 }
 
 button:hover {
@@ -77,15 +79,27 @@ button:hover {
 
 a {
   text-decoration: none;
-  font-weight: 700;
-  color: var(--color-black);
-  transition: color 0.2s ease-out 0s;
-}
-
-a:hover {
+  font-weight: 400;
   color: var(--color-arctic);
+  transition: color 0.2s ease-out 0s;
 }
 
 ul {
   list-style-type: none;
+}
+
+input {
+  background-color: var(--color-black-dark);
+  outline: none;
+  border: 0;
+  color: var(--color-white);
+  padding: 10px;
+  line-height: normal;
+  border-radius: 5px;
+}
+
+input + input,
+button + button,
+input + button {
+  margin-left: 10px;
 }

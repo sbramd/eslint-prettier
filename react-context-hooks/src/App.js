@@ -2,8 +2,14 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-import Callback from "./hooks/components/Callback";
-import Memo from "./hooks/components/Memo";
+import State from "./hooks/State";
+import Callback from "./hooks/Callback";
+import Memo from "./hooks/Memo";
+import Reducer from "./hooks/reducer";
+import Context from "./hooks/context";
+import Effect from "./hooks/effect";
+import Ref from "./hooks/Ref";
+import LayoutEffect from "./hooks/LayoutEffect";
 
 const Hero = () => (
   <div className="hero">
@@ -14,16 +20,16 @@ const Hero = () => (
   </div>
 );
 
-const SideNav = ({ links, title }) => (
+const SideNav = ({ data, title }) => (
   <nav className="side-nav-wrapper">
     <div className="side-nav">
       <header className="side-nav-header">
         <h4>{title}</h4>
       </header>
       <ul className="side-nav-link-list">
-        {links.map(({ name, id }, index) => (
+        {data.map(({ title, id }, index) => (
           <li key={index} className="side-nav-link">
-            <a href={`#${id}`}>{name}</a>
+            <a href={`#${id}`}>{title}</a>
           </li>
         ))}
       </ul>
@@ -43,21 +49,27 @@ const Wrapper = ({ id, title, component: Component }) => (
 );
 
 function App() {
-  const sections = [
+  const sectionData = [
+    { id: "state", title: "State", component: <State /> },
+    { id: "effect", title: "Effect", component: <Effect /> },
+    { id: "ref", title: "Ref", component: <Ref /> },
+    {
+      id: "layout-effect",
+      title: "Layout Effect",
+      component: <LayoutEffect />,
+    },
     { id: "callback", title: "Callback", component: <Callback /> },
     { id: "memo", title: "Memo", component: <Memo /> },
-  ];
-  const links = [
-    { id: "callback", name: "Callback" },
-    { id: "memo", name: "Memo" },
+    { id: "reducer", title: "Reducer", component: <Reducer /> },
+    { id: "context", title: "Context", component: <Context /> },
   ];
 
   return (
     <main>
-      <SideNav links={links} title="Introducing Hooks" />
+      <SideNav data={sectionData} title="Introducing Hooks" />
       <div className="container">
         <Hero />
-        {sections.map((section, index) => (
+        {sectionData.map((section, index) => (
           <Wrapper key={index} {...section} />
         ))}
       </div>
