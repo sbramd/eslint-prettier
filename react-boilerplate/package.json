@@ -22,7 +22,7 @@
 		"format": "prettier --write src/**/*.{js,jsx,scss,json}",
 		"prebuild": "npm run lint:jsx && npm run lint:css && rm -rf build",
 		"deploy": "serve -s build -l 4000",
-		"docz:dev": "docz dev",
+		"docz:dev": "docz dev --port=4838",
 		"docz:build": "docz build"
 	},
 	"eslintConfig": {

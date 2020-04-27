@@ -1,3 +1,4 @@
 build/*
+.docz/*
 public/*
 src/serviceWorker.js
